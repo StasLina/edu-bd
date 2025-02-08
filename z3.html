@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Факториал и среднее арифметическое</title>
+</head>
+<body>
+    <h1>Факториал и среднее арифметическое</h1>
+    <input type="number" id="numberInput" placeholder="Введите число">
+    <button onclick="calculate()">Вычислить</button>
+    <p id="result"></p>
+
+    <script>
+        function factorial(chislo) {
+            if (chislo === 0 || chislo === 1) return 1;
+            let nakolpen = 1;
+            for (let i = 2; i <= chislo; i++) {
+                nakolpen *= i;
+            }
+            return nakolpen;
+        }
+
+        function average(chislo) {
+            let sum = 0;
+            for (let i = 1; i <= chislo; i++) {
+                sum += i;
+            }
+            return sum / chislo;
+        }
+
+        function calculate() {
+            const num = parseInt(document.getElementById("numberInput").value);
+            let result;
+            if (num % 2 === 0) {
+                result = `Факториал числа ${num} равен ${factorial(num)}`;
+            } else {
+                result = `Среднее арифметическое чисел от 1 до ${num} равно ${average(num)}`;
+            }
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>
