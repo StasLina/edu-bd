@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Школьник</title>
+</head>
+<body>
+    <h1>Данные о школьнике</h1>
+    <script>
+        const student = {
+            surname: "Иванов",
+            name: "Иван",
+            patronymic: "Иванович",
+            birthYear: 2010,
+            classNumber: 5,
+            favoriteSubjects: ["Математика", "Физика", "Информатика"],
+            residence: {
+                country: "Россия",
+                city: "Москва",
+                street: "Ленина",
+                houseNumber: 10,
+                apartmentNumber: 5
+            },
+            registration: {
+                country: "Россия",
+                city: "Санкт-Петербург",
+                street: "Пушкина",
+                houseNumber: 15,
+                apartmentNumber: 20
+            }
+        };
+		
+		printInfo: function() {
+                console.log(`Фамилия: ${this.surname}`);
+                console.log(`Имя: ${this.name}`);
+                console.log(`Отчество: ${this.patronymic}`);
+                console.log(`Год рождения: ${this.birthYear}`);
+                console.log(`Класс: ${this.classNumber}`);
+                console.log(`Любимые предметы: ${this.favoriteSubjects.join(", ")}`);
+                console.log(`Место проживания: ${this.residence.city}, ${this.residence.street}, д.${this.residence.houseNumber}, кв.${this.residence.apartmentNumber}`);
+                console.log(`Место прописки: ${this.registration.city}, ${this.registration.street}, д.${this.registration.houseNumber}, кв.${this.registration.apartmentNumber}`);
+            }
+		
+		student.printInfo();
+
+    </script>
+</body>
+</html>
