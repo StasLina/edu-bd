@@ -59,14 +59,12 @@
 				}
 			},
 			promote: function() {
-                if (this.durationOfTraining === 9 && this.classNumber >= 9) {
-                    console.log("Максимальный класс достигнут (9 класс).");
-                } else if (this.durationOfTraining === 11 && this.classNumber >= 11) {
-                    console.log("Максимальный класс достигнут (11 класс).");
-                } else {
-                    this.classNumber++;
-                    console.log(`Школьник переведен в ${this.classNumber} класс.`);
-                }
+				if (this.classNumber < this.durationOfTraining) {
+					this.classNumber++;
+					console.log("Класс повышен до " + this.classNumber);
+				} else {	
+					console.log("Максимальный класс достигнут " + this.classNumber + "класс.");
+				}
             }	
         };
 		
