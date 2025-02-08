@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Студенты по направлениям</title>
+</head>
+<body>
+    <h1>Студенты по направлениям</h1>
+    <input type="text" id="directionCode" placeholder="Введите код направления">
+    <button onclick="showStudents()">Показать студентов</button>
+    <div id="studentsList"></div>
+
+    <script>
+        const students = [
+            { surname: "Иванов", name: "Иван", course: 1, code: "PI-101" },
+            { surname: "Петров", name: "Петр", course: 2, code: "PI-102" },
+            { surname: "Сидоров", name: "Сидор", course: 3, code: "PI-101" },
+            { surname: "Кузнецов", name: "Алексей", course: 1, code: "PI-103" },
+            { surname: "Смирнов", name: "Дмитрий", course: 2, code: "PI-102" },
+            { surname: "Васильев", name: "Василий", course: 3, code: "PI-101" }
+        ];
+
+        function showStudents() {
+            const code = document.getElementById("directionCode").value;
+            const filteredStudents = students.filter(student => student.code === code);
+            const otherStudents = students.filter(student => student.code !== code);
+
+            let output = "<h2>Студенты направления " + code + ":</h2><ul>";
+            filteredStudents.forEach(student => {
+                output += `<li>${student.surname} ${student.name}, курс ${student.course}</li>`;
+            });
+            output += "</ul>";
+
+            document.getElementById("studentsList").innerHTML = output;
+
+            console.log("Студенты других направлений:");
+            otherStudents.forEach(student => {
+                console.log(`${student.surname} ${student.name}, курс ${student.course}, код направления ${student.code}`);
+            });
+        }
+    </script>
+</body>
+</html>
