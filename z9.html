@@ -57,12 +57,28 @@
 				} else {
 					console.log("Неверный год рождения. Год должен быть в диапазоне [текущий год - 200 лет, текущий год].");
 				}
-			}
+			},
+			promote: function() {
+                if (this.durationOfTraining === 9 && this.classNumber >= 9) {
+                    console.log("Максимальный класс достигнут (9 класс).");
+                } else if (this.durationOfTraining === 11 && this.classNumber >= 11) {
+                    console.log("Максимальный класс достигнут (11 класс).");
+                } else {
+                    this.classNumber++;
+                    console.log(`Школьник переведен в ${this.classNumber} класс.`);
+                }
+            }	
         };
 		
         // Вызов метода printInfo
+        student.printInfo();
 		student.setBirthYear(1800); // Неверный год
         student.setBirthYear(2005); // Верный год
+		student.promote(); // Переведет в 6 класс
+        student.promote(); // Переведет в 7 класс
+        student.promote(); // Переведет в 8 класс
+        student.promote(); // Переведет в 9 класс
+        student.promote(); // Максимальный класс достигнут
         student.printInfo();
     </script>
 </body>
